@@ -104,5 +104,5 @@ export async function generateReport(kind: ReportKind, opts: { ward?: string; ho
     doc.setFontSize(7); doc.setTextColor(130, 140, 135);
     doc.text(`NEXUS Mumbai · simulated demo data · page ${i} of ${pages}`, 40, doc.internal.pageSize.getHeight() - 20);
   }
-  doc.save(`nexus-${kind}${opts.ward ? `-${opts.ward.replace("/", "")}` : ""}-${rows[0].month.key}.pdf`);
+  doc.save(`nexus-${kind}${kind === "ward" && opts.ward ? `-${opts.ward.replace("/", "")}` : ""}-${rows[0].month.key}.pdf`);
 }

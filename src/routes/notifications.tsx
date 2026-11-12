@@ -28,7 +28,7 @@ function Notifications() {
   const runCheck = () => {
     setNexus((st) => ({ ...st, lastCheckAt: new Date().toISOString() }));
     const crit = alerts.filter((a) => a.level === "Critical").length;
-    if (alerts.length) toast.warning(`${alerts.length} wards × diseases above threshold`, { description: `${crit} critical for ${month}. ${s.channels.sms || s.channels.email ? "SMS/email delivery needs a messaging backend — shown in-app only." : ""}` });
+    if (alerts.length) toast.warning(`${alerts.length} ward alerts above your thresholds`, { description: `${crit} critical for ${month}. ${s.channels.sms || s.channels.email ? "SMS/email delivery needs a messaging backend — shown in-app only." : ""}` });
     else toast.success("All wards below your thresholds");
   };
   const setThreshold = (d: "cholera" | "typhoid", v: number) => setNexus((st) => ({ ...st, thresholds: { ...st.thresholds, [d]: v } }));
