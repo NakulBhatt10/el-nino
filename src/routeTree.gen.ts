@@ -10,33 +10,310 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as ClimateRouteImport } from './routes/climate'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as DataExplorerRouteImport } from './routes/data-explorer'
+import { Route as DataSourcesRouteImport } from './routes/data-sources'
+import { Route as DiseaseEducationRouteImport } from './routes/disease-education'
+import { Route as ElNinoRouteImport } from './routes/el-nino'
+import { Route as ExplainableAiRouteImport } from './routes/explainable-ai'
+import { Route as HeatmapRouteImport } from './routes/heatmap'
+import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
+import { Route as Mumbai3dRouteImport } from './routes/mumbai-3d'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PlaybackRouteImport } from './routes/playback'
+import { Route as PredictionsRouteImport } from './routes/predictions'
+import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SimulatorRouteImport } from './routes/simulator'
+import { Route as StgnnRouteImport } from './routes/stgnn'
+import { Route as SurveillanceRouteImport } from './routes/surveillance'
+import { Route as TransformerRouteImport } from './routes/transformer'
+import { Route as WaterQualityRouteImport } from './routes/water-quality'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AlertsRoute = AlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClimateRoute = ClimateRouteImport.update({
+  id: '/climate',
+  path: '/climate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataExplorerRoute = DataExplorerRouteImport.update({
+  id: '/data-explorer',
+  path: '/data-explorer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataSourcesRoute = DataSourcesRouteImport.update({
+  id: '/data-sources',
+  path: '/data-sources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiseaseEducationRoute = DiseaseEducationRouteImport.update({
+  id: '/disease-education',
+  path: '/disease-education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ElNinoRoute = ElNinoRouteImport.update({
+  id: '/el-nino',
+  path: '/el-nino',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExplainableAiRoute = ExplainableAiRouteImport.update({
+  id: '/explainable-ai',
+  path: '/explainable-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeatmapRoute = HeatmapRouteImport.update({
+  id: '/heatmap',
+  path: '/heatmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModelPerformanceRoute = ModelPerformanceRouteImport.update({
+  id: '/model-performance',
+  path: '/model-performance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Mumbai3dRoute = Mumbai3dRouteImport.update({
+  id: '/mumbai-3d',
+  path: '/mumbai-3d',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlaybackRoute = PlaybackRouteImport.update({
+  id: '/playback',
+  path: '/playback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictionsRoute = PredictionsRouteImport.update({
+  id: '/predictions',
+  path: '/predictions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecommendationsRoute = RecommendationsRouteImport.update({
+  id: '/recommendations',
+  path: '/recommendations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimulatorRoute = SimulatorRouteImport.update({
+  id: '/simulator',
+  path: '/simulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StgnnRoute = StgnnRouteImport.update({
+  id: '/stgnn',
+  path: '/stgnn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SurveillanceRoute = SurveillanceRouteImport.update({
+  id: '/surveillance',
+  path: '/surveillance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransformerRoute = TransformerRouteImport.update({
+  id: '/transformer',
+  path: '/transformer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WaterQualityRoute = WaterQualityRouteImport.update({
+  id: '/water-quality',
+  path: '/water-quality',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/climate': typeof ClimateRoute
+  '/compare': typeof CompareRoute
+  '/data-explorer': typeof DataExplorerRoute
+  '/data-sources': typeof DataSourcesRoute
+  '/disease-education': typeof DiseaseEducationRoute
+  '/el-nino': typeof ElNinoRoute
+  '/explainable-ai': typeof ExplainableAiRoute
+  '/heatmap': typeof HeatmapRoute
+  '/model-performance': typeof ModelPerformanceRoute
+  '/mumbai-3d': typeof Mumbai3dRoute
+  '/notifications': typeof NotificationsRoute
+  '/playback': typeof PlaybackRoute
+  '/predictions': typeof PredictionsRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
+  '/simulator': typeof SimulatorRoute
+  '/stgnn': typeof StgnnRoute
+  '/surveillance': typeof SurveillanceRoute
+  '/transformer': typeof TransformerRoute
+  '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/climate': typeof ClimateRoute
+  '/compare': typeof CompareRoute
+  '/data-explorer': typeof DataExplorerRoute
+  '/data-sources': typeof DataSourcesRoute
+  '/disease-education': typeof DiseaseEducationRoute
+  '/el-nino': typeof ElNinoRoute
+  '/explainable-ai': typeof ExplainableAiRoute
+  '/heatmap': typeof HeatmapRoute
+  '/model-performance': typeof ModelPerformanceRoute
+  '/mumbai-3d': typeof Mumbai3dRoute
+  '/notifications': typeof NotificationsRoute
+  '/playback': typeof PlaybackRoute
+  '/predictions': typeof PredictionsRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
+  '/simulator': typeof SimulatorRoute
+  '/stgnn': typeof StgnnRoute
+  '/surveillance': typeof SurveillanceRoute
+  '/transformer': typeof TransformerRoute
+  '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/climate': typeof ClimateRoute
+  '/compare': typeof CompareRoute
+  '/data-explorer': typeof DataExplorerRoute
+  '/data-sources': typeof DataSourcesRoute
+  '/disease-education': typeof DiseaseEducationRoute
+  '/el-nino': typeof ElNinoRoute
+  '/explainable-ai': typeof ExplainableAiRoute
+  '/heatmap': typeof HeatmapRoute
+  '/model-performance': typeof ModelPerformanceRoute
+  '/mumbai-3d': typeof Mumbai3dRoute
+  '/notifications': typeof NotificationsRoute
+  '/playback': typeof PlaybackRoute
+  '/predictions': typeof PredictionsRoute
+  '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
+  '/simulator': typeof SimulatorRoute
+  '/stgnn': typeof StgnnRoute
+  '/surveillance': typeof SurveillanceRoute
+  '/transformer': typeof TransformerRoute
+  '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alerts'
+    | '/climate'
+    | '/compare'
+    | '/data-explorer'
+    | '/data-sources'
+    | '/disease-education'
+    | '/el-nino'
+    | '/explainable-ai'
+    | '/heatmap'
+    | '/model-performance'
+    | '/mumbai-3d'
+    | '/notifications'
+    | '/playback'
+    | '/predictions'
+    | '/recommendations'
+    | '/reports'
+    | '/simulator'
+    | '/stgnn'
+    | '/surveillance'
+    | '/transformer'
+    | '/water-quality'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alerts'
+    | '/climate'
+    | '/compare'
+    | '/data-explorer'
+    | '/data-sources'
+    | '/disease-education'
+    | '/el-nino'
+    | '/explainable-ai'
+    | '/heatmap'
+    | '/model-performance'
+    | '/mumbai-3d'
+    | '/notifications'
+    | '/playback'
+    | '/predictions'
+    | '/recommendations'
+    | '/reports'
+    | '/simulator'
+    | '/stgnn'
+    | '/surveillance'
+    | '/transformer'
+    | '/water-quality'
+  id:
+    | '__root__'
+    | '/'
+    | '/alerts'
+    | '/climate'
+    | '/compare'
+    | '/data-explorer'
+    | '/data-sources'
+    | '/disease-education'
+    | '/el-nino'
+    | '/explainable-ai'
+    | '/heatmap'
+    | '/model-performance'
+    | '/mumbai-3d'
+    | '/notifications'
+    | '/playback'
+    | '/predictions'
+    | '/recommendations'
+    | '/reports'
+    | '/simulator'
+    | '/stgnn'
+    | '/surveillance'
+    | '/transformer'
+    | '/water-quality'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlertsRoute: typeof AlertsRoute
+  ClimateRoute: typeof ClimateRoute
+  CompareRoute: typeof CompareRoute
+  DataExplorerRoute: typeof DataExplorerRoute
+  DataSourcesRoute: typeof DataSourcesRoute
+  DiseaseEducationRoute: typeof DiseaseEducationRoute
+  ElNinoRoute: typeof ElNinoRoute
+  ExplainableAiRoute: typeof ExplainableAiRoute
+  HeatmapRoute: typeof HeatmapRoute
+  ModelPerformanceRoute: typeof ModelPerformanceRoute
+  Mumbai3dRoute: typeof Mumbai3dRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PlaybackRoute: typeof PlaybackRoute
+  PredictionsRoute: typeof PredictionsRoute
+  RecommendationsRoute: typeof RecommendationsRoute
+  ReportsRoute: typeof ReportsRoute
+  SimulatorRoute: typeof SimulatorRoute
+  StgnnRoute: typeof StgnnRoute
+  SurveillanceRoute: typeof SurveillanceRoute
+  TransformerRoute: typeof TransformerRoute
+  WaterQualityRoute: typeof WaterQualityRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +325,179 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/alerts': {
+      id: '/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/climate': {
+      id: '/climate'
+      path: '/climate'
+      fullPath: '/climate'
+      preLoaderRoute: typeof ClimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-explorer': {
+      id: '/data-explorer'
+      path: '/data-explorer'
+      fullPath: '/data-explorer'
+      preLoaderRoute: typeof DataExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-sources': {
+      id: '/data-sources'
+      path: '/data-sources'
+      fullPath: '/data-sources'
+      preLoaderRoute: typeof DataSourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disease-education': {
+      id: '/disease-education'
+      path: '/disease-education'
+      fullPath: '/disease-education'
+      preLoaderRoute: typeof DiseaseEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/el-nino': {
+      id: '/el-nino'
+      path: '/el-nino'
+      fullPath: '/el-nino'
+      preLoaderRoute: typeof ElNinoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explainable-ai': {
+      id: '/explainable-ai'
+      path: '/explainable-ai'
+      fullPath: '/explainable-ai'
+      preLoaderRoute: typeof ExplainableAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/heatmap': {
+      id: '/heatmap'
+      path: '/heatmap'
+      fullPath: '/heatmap'
+      preLoaderRoute: typeof HeatmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/model-performance': {
+      id: '/model-performance'
+      path: '/model-performance'
+      fullPath: '/model-performance'
+      preLoaderRoute: typeof ModelPerformanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mumbai-3d': {
+      id: '/mumbai-3d'
+      path: '/mumbai-3d'
+      fullPath: '/mumbai-3d'
+      preLoaderRoute: typeof Mumbai3dRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playback': {
+      id: '/playback'
+      path: '/playback'
+      fullPath: '/playback'
+      preLoaderRoute: typeof PlaybackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/predictions': {
+      id: '/predictions'
+      path: '/predictions'
+      fullPath: '/predictions'
+      preLoaderRoute: typeof PredictionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recommendations': {
+      id: '/recommendations'
+      path: '/recommendations'
+      fullPath: '/recommendations'
+      preLoaderRoute: typeof RecommendationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/simulator': {
+      id: '/simulator'
+      path: '/simulator'
+      fullPath: '/simulator'
+      preLoaderRoute: typeof SimulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stgnn': {
+      id: '/stgnn'
+      path: '/stgnn'
+      fullPath: '/stgnn'
+      preLoaderRoute: typeof StgnnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/surveillance': {
+      id: '/surveillance'
+      path: '/surveillance'
+      fullPath: '/surveillance'
+      preLoaderRoute: typeof SurveillanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transformer': {
+      id: '/transformer'
+      path: '/transformer'
+      fullPath: '/transformer'
+      preLoaderRoute: typeof TransformerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/water-quality': {
+      id: '/water-quality'
+      path: '/water-quality'
+      fullPath: '/water-quality'
+      preLoaderRoute: typeof WaterQualityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlertsRoute: AlertsRoute,
+  ClimateRoute: ClimateRoute,
+  CompareRoute: CompareRoute,
+  DataExplorerRoute: DataExplorerRoute,
+  DataSourcesRoute: DataSourcesRoute,
+  DiseaseEducationRoute: DiseaseEducationRoute,
+  ElNinoRoute: ElNinoRoute,
+  ExplainableAiRoute: ExplainableAiRoute,
+  HeatmapRoute: HeatmapRoute,
+  ModelPerformanceRoute: ModelPerformanceRoute,
+  Mumbai3dRoute: Mumbai3dRoute,
+  NotificationsRoute: NotificationsRoute,
+  PlaybackRoute: PlaybackRoute,
+  PredictionsRoute: PredictionsRoute,
+  RecommendationsRoute: RecommendationsRoute,
+  ReportsRoute: ReportsRoute,
+  SimulatorRoute: SimulatorRoute,
+  StgnnRoute: StgnnRoute,
+  SurveillanceRoute: SurveillanceRoute,
+  TransformerRoute: TransformerRoute,
+  WaterQualityRoute: WaterQualityRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
