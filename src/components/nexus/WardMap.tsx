@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import type * as Leaflet from "leaflet";
-import geo from "@/lib/nexus/ward-geo.json";
+import { WARD_GEO as geo } from "@/lib/nexus/ward-geo";
 import { wardByCode, WARDS } from "@/lib/nexus/wards";
 import { FOREST } from "@/lib/nexus/palette";
 import { cn } from "@/lib/utils";
@@ -56,7 +56,7 @@ export function WardMap({ styles, selected, onSelect, edges, height = 460, showL
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a> · Wards: MCGM/Datameet',
         maxZoom: 18,
       }).addTo(m);
-      const gj = Lf.geoJSON(geo as GeoJSON.FeatureCollection, {
+      const gj = Lf.geoJSON(geo, {
         onEachFeature: (f, layer) => {
           const code = (f.properties as { ward: string }).ward;
           layers.current[code] = layer as Leaflet.Path;
