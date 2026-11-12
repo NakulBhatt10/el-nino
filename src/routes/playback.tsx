@@ -25,9 +25,12 @@ function Playback() {
   const [target, setTarget] = useState<RiskTarget>("composite");
   useEffect(() => {
     if (!playing) return;
-    const t = setInterval(() => setIdx((i) => (i >= LATEST.idx ? (setPlaying(false), i) : i + 1)), 900 / Number(speed));
+    const t = setInterval(() => setIdx((i) => Math.min(LATEST.idx, i + 1)), 900 / Number(speed));
     return () => clearInterval(t);
   }, [playing, speed]);
+  useEffect(() => {
+    if (playing && idx >= LATEST.idx) setPlaying(false);
+  }, [playing, idx]);
 
   const rows = riskAt(idx);
   const c = citySeries()[idx];

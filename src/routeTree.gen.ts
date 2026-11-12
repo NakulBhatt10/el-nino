@@ -12,12 +12,15 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as ClimateRouteImport } from './routes/climate'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as ExplainableAiRouteImport } from './routes/explainable-ai'
 import { Route as HeatmapRouteImport } from './routes/heatmap'
 import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PlaybackRouteImport } from './routes/playback'
 import { Route as PredictionsRouteImport } from './routes/predictions'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as SimulatorRouteImport } from './routes/simulator'
 import { Route as StgnnRouteImport } from './routes/stgnn'
 import { Route as SurveillanceRouteImport } from './routes/surveillance'
 import { Route as TransformerRouteImport } from './routes/transformer'
@@ -36,6 +39,11 @@ const AlertsRoute = AlertsRouteImport.update({
 const ClimateRoute = ClimateRouteImport.update({
   id: '/climate',
   path: '/climate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExplainableAiRoute = ExplainableAiRouteImport.update({
@@ -58,6 +66,11 @@ const NotificationsRoute = NotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlaybackRoute = PlaybackRouteImport.update({
+  id: '/playback',
+  path: '/playback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PredictionsRoute = PredictionsRouteImport.update({
   id: '/predictions',
   path: '/predictions',
@@ -66,6 +79,11 @@ const PredictionsRoute = PredictionsRouteImport.update({
 const RecommendationsRoute = RecommendationsRouteImport.update({
   id: '/recommendations',
   path: '/recommendations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimulatorRoute = SimulatorRouteImport.update({
+  id: '/simulator',
+  path: '/simulator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StgnnRoute = StgnnRouteImport.update({
@@ -93,12 +111,15 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
   '/climate': typeof ClimateRoute
+  '/compare': typeof CompareRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
   '/notifications': typeof NotificationsRoute
+  '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
   '/recommendations': typeof RecommendationsRoute
+  '/simulator': typeof SimulatorRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
   '/transformer': typeof TransformerRoute
@@ -108,12 +129,15 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
   '/climate': typeof ClimateRoute
+  '/compare': typeof CompareRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
   '/notifications': typeof NotificationsRoute
+  '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
   '/recommendations': typeof RecommendationsRoute
+  '/simulator': typeof SimulatorRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
   '/transformer': typeof TransformerRoute
@@ -124,12 +148,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/alerts': typeof AlertsRoute
   '/climate': typeof ClimateRoute
+  '/compare': typeof CompareRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
   '/notifications': typeof NotificationsRoute
+  '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
   '/recommendations': typeof RecommendationsRoute
+  '/simulator': typeof SimulatorRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
   '/transformer': typeof TransformerRoute
@@ -141,12 +168,15 @@ export interface FileRouteTypes {
     | '/'
     | '/alerts'
     | '/climate'
+    | '/compare'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
     | '/notifications'
+    | '/playback'
     | '/predictions'
     | '/recommendations'
+    | '/simulator'
     | '/stgnn'
     | '/surveillance'
     | '/transformer'
@@ -156,12 +186,15 @@ export interface FileRouteTypes {
     | '/'
     | '/alerts'
     | '/climate'
+    | '/compare'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
     | '/notifications'
+    | '/playback'
     | '/predictions'
     | '/recommendations'
+    | '/simulator'
     | '/stgnn'
     | '/surveillance'
     | '/transformer'
@@ -171,12 +204,15 @@ export interface FileRouteTypes {
     | '/'
     | '/alerts'
     | '/climate'
+    | '/compare'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
     | '/notifications'
+    | '/playback'
     | '/predictions'
     | '/recommendations'
+    | '/simulator'
     | '/stgnn'
     | '/surveillance'
     | '/transformer'
@@ -187,12 +223,15 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlertsRoute: typeof AlertsRoute
   ClimateRoute: typeof ClimateRoute
+  CompareRoute: typeof CompareRoute
   ExplainableAiRoute: typeof ExplainableAiRoute
   HeatmapRoute: typeof HeatmapRoute
   ModelPerformanceRoute: typeof ModelPerformanceRoute
   NotificationsRoute: typeof NotificationsRoute
+  PlaybackRoute: typeof PlaybackRoute
   PredictionsRoute: typeof PredictionsRoute
   RecommendationsRoute: typeof RecommendationsRoute
+  SimulatorRoute: typeof SimulatorRoute
   StgnnRoute: typeof StgnnRoute
   SurveillanceRoute: typeof SurveillanceRoute
   TransformerRoute: typeof TransformerRoute
@@ -220,6 +259,13 @@ declare module '@tanstack/react-router' {
       path: '/climate'
       fullPath: '/climate'
       preLoaderRoute: typeof ClimateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/explainable-ai': {
@@ -250,6 +296,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/playback': {
+      id: '/playback'
+      path: '/playback'
+      fullPath: '/playback'
+      preLoaderRoute: typeof PlaybackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/predictions': {
       id: '/predictions'
       path: '/predictions'
@@ -262,6 +315,13 @@ declare module '@tanstack/react-router' {
       path: '/recommendations'
       fullPath: '/recommendations'
       preLoaderRoute: typeof RecommendationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/simulator': {
+      id: '/simulator'
+      path: '/simulator'
+      fullPath: '/simulator'
+      preLoaderRoute: typeof SimulatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/stgnn': {
@@ -299,12 +359,15 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlertsRoute: AlertsRoute,
   ClimateRoute: ClimateRoute,
+  CompareRoute: CompareRoute,
   ExplainableAiRoute: ExplainableAiRoute,
   HeatmapRoute: HeatmapRoute,
   ModelPerformanceRoute: ModelPerformanceRoute,
   NotificationsRoute: NotificationsRoute,
+  PlaybackRoute: PlaybackRoute,
   PredictionsRoute: PredictionsRoute,
   RecommendationsRoute: RecommendationsRoute,
+  SimulatorRoute: SimulatorRoute,
   StgnnRoute: StgnnRoute,
   SurveillanceRoute: SurveillanceRoute,
   TransformerRoute: TransformerRoute,
