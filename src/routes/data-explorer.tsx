@@ -125,7 +125,7 @@ function Explorer() {
           </div>
         </div>
       </Panel>
-      <SimNote className="mt-6">All datasets except ward boundaries and Census population/area are simulated for demonstration. Downloads include the same caveat in their file names' "nexus-" prefix; do not cite them as official data.</SimNote>
+      <SimNote className="mt-6">All datasets except ward boundaries and Census population/area are simulated for demonstration. Downloads carry the same caveat — do not cite them as official data.</SimNote>
     </Page>
   );
 }

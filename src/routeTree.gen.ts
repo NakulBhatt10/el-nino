@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as ClimateRouteImport } from './routes/climate'
 import { Route as CompareRouteImport } from './routes/compare'
+import { Route as DataExplorerRouteImport } from './routes/data-explorer'
+import { Route as DataSourcesRouteImport } from './routes/data-sources'
 import { Route as ExplainableAiRouteImport } from './routes/explainable-ai'
 import { Route as HeatmapRouteImport } from './routes/heatmap'
 import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
@@ -44,6 +46,16 @@ const ClimateRoute = ClimateRouteImport.update({
 const CompareRoute = CompareRouteImport.update({
   id: '/compare',
   path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataExplorerRoute = DataExplorerRouteImport.update({
+  id: '/data-explorer',
+  path: '/data-explorer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataSourcesRoute = DataSourcesRouteImport.update({
+  id: '/data-sources',
+  path: '/data-sources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExplainableAiRoute = ExplainableAiRouteImport.update({
@@ -112,6 +124,8 @@ export interface FileRoutesByFullPath {
   '/alerts': typeof AlertsRoute
   '/climate': typeof ClimateRoute
   '/compare': typeof CompareRoute
+  '/data-explorer': typeof DataExplorerRoute
+  '/data-sources': typeof DataSourcesRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
@@ -130,6 +144,8 @@ export interface FileRoutesByTo {
   '/alerts': typeof AlertsRoute
   '/climate': typeof ClimateRoute
   '/compare': typeof CompareRoute
+  '/data-explorer': typeof DataExplorerRoute
+  '/data-sources': typeof DataSourcesRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
@@ -149,6 +165,8 @@ export interface FileRoutesById {
   '/alerts': typeof AlertsRoute
   '/climate': typeof ClimateRoute
   '/compare': typeof CompareRoute
+  '/data-explorer': typeof DataExplorerRoute
+  '/data-sources': typeof DataSourcesRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
@@ -169,6 +187,8 @@ export interface FileRouteTypes {
     | '/alerts'
     | '/climate'
     | '/compare'
+    | '/data-explorer'
+    | '/data-sources'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
@@ -187,6 +207,8 @@ export interface FileRouteTypes {
     | '/alerts'
     | '/climate'
     | '/compare'
+    | '/data-explorer'
+    | '/data-sources'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
@@ -205,6 +227,8 @@ export interface FileRouteTypes {
     | '/alerts'
     | '/climate'
     | '/compare'
+    | '/data-explorer'
+    | '/data-sources'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
@@ -224,6 +248,8 @@ export interface RootRouteChildren {
   AlertsRoute: typeof AlertsRoute
   ClimateRoute: typeof ClimateRoute
   CompareRoute: typeof CompareRoute
+  DataExplorerRoute: typeof DataExplorerRoute
+  DataSourcesRoute: typeof DataSourcesRoute
   ExplainableAiRoute: typeof ExplainableAiRoute
   HeatmapRoute: typeof HeatmapRoute
   ModelPerformanceRoute: typeof ModelPerformanceRoute
@@ -266,6 +292,20 @@ declare module '@tanstack/react-router' {
       path: '/compare'
       fullPath: '/compare'
       preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-explorer': {
+      id: '/data-explorer'
+      path: '/data-explorer'
+      fullPath: '/data-explorer'
+      preLoaderRoute: typeof DataExplorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-sources': {
+      id: '/data-sources'
+      path: '/data-sources'
+      fullPath: '/data-sources'
+      preLoaderRoute: typeof DataSourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/explainable-ai': {
@@ -360,6 +400,8 @@ const rootRouteChildren: RootRouteChildren = {
   AlertsRoute: AlertsRoute,
   ClimateRoute: ClimateRoute,
   CompareRoute: CompareRoute,
+  DataExplorerRoute: DataExplorerRoute,
+  DataSourcesRoute: DataSourcesRoute,
   ExplainableAiRoute: ExplainableAiRoute,
   HeatmapRoute: HeatmapRoute,
   ModelPerformanceRoute: ModelPerformanceRoute,
