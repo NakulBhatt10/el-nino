@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ClimateRouteImport } from './routes/climate'
 import { Route as HeatmapRouteImport } from './routes/heatmap'
+import { Route as PredictionsRouteImport } from './routes/predictions'
+import { Route as StgnnRouteImport } from './routes/stgnn'
 import { Route as SurveillanceRouteImport } from './routes/surveillance'
 import { Route as WaterQualityRouteImport } from './routes/water-quality'
 
@@ -30,6 +32,16 @@ const HeatmapRoute = HeatmapRouteImport.update({
   path: '/heatmap',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PredictionsRoute = PredictionsRouteImport.update({
+  id: '/predictions',
+  path: '/predictions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StgnnRoute = StgnnRouteImport.update({
+  id: '/stgnn',
+  path: '/stgnn',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SurveillanceRoute = SurveillanceRouteImport.update({
   id: '/surveillance',
   path: '/surveillance',
@@ -45,6 +57,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
   '/heatmap': typeof HeatmapRoute
+  '/predictions': typeof PredictionsRoute
+  '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
   '/water-quality': typeof WaterQualityRoute
 }
@@ -52,6 +66,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
   '/heatmap': typeof HeatmapRoute
+  '/predictions': typeof PredictionsRoute
+  '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
   '/water-quality': typeof WaterQualityRoute
 }
@@ -60,19 +76,37 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
   '/heatmap': typeof HeatmapRoute
+  '/predictions': typeof PredictionsRoute
+  '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
   '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/climate' | '/heatmap' | '/surveillance' | '/water-quality'
+  fullPaths:
+    | '/'
+    | '/climate'
+    | '/heatmap'
+    | '/predictions'
+    | '/stgnn'
+    | '/surveillance'
+    | '/water-quality'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/climate' | '/heatmap' | '/surveillance' | '/water-quality'
+  to:
+    | '/'
+    | '/climate'
+    | '/heatmap'
+    | '/predictions'
+    | '/stgnn'
+    | '/surveillance'
+    | '/water-quality'
   id:
     | '__root__'
     | '/'
     | '/climate'
     | '/heatmap'
+    | '/predictions'
+    | '/stgnn'
     | '/surveillance'
     | '/water-quality'
   fileRoutesById: FileRoutesById
@@ -81,6 +115,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ClimateRoute: typeof ClimateRoute
   HeatmapRoute: typeof HeatmapRoute
+  PredictionsRoute: typeof PredictionsRoute
+  StgnnRoute: typeof StgnnRoute
   SurveillanceRoute: typeof SurveillanceRoute
   WaterQualityRoute: typeof WaterQualityRoute
 }
@@ -108,6 +144,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HeatmapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/predictions': {
+      id: '/predictions'
+      path: '/predictions'
+      fullPath: '/predictions'
+      preLoaderRoute: typeof PredictionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stgnn': {
+      id: '/stgnn'
+      path: '/stgnn'
+      fullPath: '/stgnn'
+      preLoaderRoute: typeof StgnnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/surveillance': {
       id: '/surveillance'
       path: '/surveillance'
@@ -129,6 +179,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ClimateRoute: ClimateRoute,
   HeatmapRoute: HeatmapRoute,
+  PredictionsRoute: PredictionsRoute,
+  StgnnRoute: StgnnRoute,
   SurveillanceRoute: SurveillanceRoute,
   WaterQualityRoute: WaterQualityRoute,
 }
