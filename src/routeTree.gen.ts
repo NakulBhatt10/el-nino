@@ -20,6 +20,7 @@ import { Route as ElNinoRouteImport } from './routes/el-nino'
 import { Route as ExplainableAiRouteImport } from './routes/explainable-ai'
 import { Route as HeatmapRouteImport } from './routes/heatmap'
 import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
+import { Route as Mumbai3dRouteImport } from './routes/mumbai-3d'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PlaybackRouteImport } from './routes/playback'
 import { Route as PredictionsRouteImport } from './routes/predictions'
@@ -86,6 +87,11 @@ const ModelPerformanceRoute = ModelPerformanceRouteImport.update({
   path: '/model-performance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Mumbai3dRoute = Mumbai3dRouteImport.update({
+  id: '/mumbai-3d',
+  path: '/mumbai-3d',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
+  '/mumbai-3d': typeof Mumbai3dRoute
   '/notifications': typeof NotificationsRoute
   '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
@@ -172,6 +179,7 @@ export interface FileRoutesByTo {
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
+  '/mumbai-3d': typeof Mumbai3dRoute
   '/notifications': typeof NotificationsRoute
   '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
+  '/mumbai-3d': typeof Mumbai3dRoute
   '/notifications': typeof NotificationsRoute
   '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
@@ -221,6 +230,7 @@ export interface FileRouteTypes {
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
+    | '/mumbai-3d'
     | '/notifications'
     | '/playback'
     | '/predictions'
@@ -244,6 +254,7 @@ export interface FileRouteTypes {
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
+    | '/mumbai-3d'
     | '/notifications'
     | '/playback'
     | '/predictions'
@@ -267,6 +278,7 @@ export interface FileRouteTypes {
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
+    | '/mumbai-3d'
     | '/notifications'
     | '/playback'
     | '/predictions'
@@ -291,6 +303,7 @@ export interface RootRouteChildren {
   ExplainableAiRoute: typeof ExplainableAiRoute
   HeatmapRoute: typeof HeatmapRoute
   ModelPerformanceRoute: typeof ModelPerformanceRoute
+  Mumbai3dRoute: typeof Mumbai3dRoute
   NotificationsRoute: typeof NotificationsRoute
   PlaybackRoute: typeof PlaybackRoute
   PredictionsRoute: typeof PredictionsRoute
@@ -382,6 +395,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ModelPerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mumbai-3d': {
+      id: '/mumbai-3d'
+      path: '/mumbai-3d'
+      fullPath: '/mumbai-3d'
+      preLoaderRoute: typeof Mumbai3dRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notifications': {
       id: '/notifications'
       path: '/notifications'
@@ -467,6 +487,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExplainableAiRoute: ExplainableAiRoute,
   HeatmapRoute: HeatmapRoute,
   ModelPerformanceRoute: ModelPerformanceRoute,
+  Mumbai3dRoute: Mumbai3dRoute,
   NotificationsRoute: NotificationsRoute,
   PlaybackRoute: PlaybackRoute,
   PredictionsRoute: PredictionsRoute,
