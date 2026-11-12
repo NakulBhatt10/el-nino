@@ -87,7 +87,7 @@ export interface WardMonth extends MonthRef {
 
 const LAKE_CAPACITY_ML = 1_447_363;
 const MONTHLY_DEMAND_ML = 132_000;
-const INFLOW_ML_PER_MM = 470;
+const INFLOW_ML_PER_MM = 560;
 
 function buildCity(): CityMonth[] {
   const rng = mulberry32(20151);
@@ -144,7 +144,7 @@ function buildWard(ward: Ward, city: CityMonth[]): WardMonth[] {
     const supplyHours = clamp(ward.baseSupplyHours * (1 - (c.waterCutPct / 100) * 1.6) + gauss(rng) * 0.15, 0.8, 8);
     const scarcityIndex = clamp(1 - supplyHours / 6 + c.waterCutPct / 100 + (c.lakeStoragePct < 20 ? 0.1 : 0));
     const rainRatio = rainfallMm / 700;
-    const unfitTarget = ward.baseUnfitPct * (1 + 1.1 * Math.min(rainRatio, 1.6)) * (1 + 0.9 * scarcityIndex * ward.slumShare);
+    const unfitTarget = ward.baseUnfitPct * (1 + 0.8 * Math.min(rainRatio, 1.6)) * (1 + 0.6 * scarcityIndex * ward.slumShare);
     const unfitPct = clamp(0.6 * unfitTarget + 0.4 * prevUnfit + gauss(rng) * 0.35, 0.1, 18);
     prevUnfit = unfitPct;
     const residualChlorine = clamp(0.62 - 0.035 * unfitPct + gauss(rng) * 0.05, 0.05, 1);
@@ -153,10 +153,10 @@ function buildWard(ward: Ward, city: CityMonth[]): WardMonth[] {
     const drive =
       0.32 * unfitPct + 0.5 * Math.min(rainRatio, 1.6) + 1.4 * ward.slumShare + 0.9 * scarcityIndex +
       0.12 * (tmax - 30) + 0.8 * (1 - ward.sewerCoverage) + 0.2 * Math.max(0, c.oni);
-    const typhoidRate = 0.55 * Math.exp(drive * 0.55);
-    const choleraRate = 0.025 * Math.exp(drive * 0.8);
+    const typhoidRate = 0.2 * Math.exp(drive * 0.55);
+    const choleraRate = 0.0028 * Math.exp(drive * 0.8);
     const typhoid = Math.max(0, Math.round(typhoidRate * pop100k * (1 + gauss(rng) * 0.22)));
-    const cholera = Math.max(0, Math.round(choleraRate * pop100k * (1 + gauss(rng) * 0.4) + (rng() < 0.05 ? 1 : 0)));
+    const cholera = Math.max(0, Math.round(choleraRate * pop100k * (1 + gauss(rng) * 0.4) + (rng() < 0.03 ? 1 : 0)));
 
     out.push({
       idx: c.idx, key: c.key, year: c.year, month: c.month, label: c.label,
