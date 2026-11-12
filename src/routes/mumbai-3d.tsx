@@ -25,7 +25,7 @@ function ThreeD() {
   const wards = rows.map((r) => {
     const w = wardByCode(r.ward);
     const p = pick(r, target);
-    const height = mode === "risk" ? 0.3 + p * 9 : mode === "terrain" ? 0.3 + w.elevationM * 0.25 : 0.3 + (w.population / w.areaKm2) / 9000;
+    const height = mode === "risk" ? 0.3 + p * 5 : mode === "terrain" ? 0.3 + w.elevationM * 0.2 : 0.3 + (w.population / w.areaKm2) / 18000;
     return { code: r.ward, height, level: categorize(p), label: `Ward ${r.ward} · ${fmtPct(p)}` };
   });
   const sel = rows.find((r) => r.ward === selected);
@@ -65,7 +65,7 @@ function ThreeD() {
           </Panel>
         )}
       </div>
-      <SimNote className="mt-6">Ward shapes are real MCGM boundaries. Elevations are rough ward averages (exaggerated ×25 vertically) and risk values are simulated. Performance depends on your device's graphics.</SimNote>
+      <SimNote className="mt-6">Ward shapes are real MCGM boundaries. Elevations are rough ward averages (exaggerated ×200 vertically) and risk values are simulated. Performance depends on your device's graphics.</SimNote>
     </Page>
   );
 }
