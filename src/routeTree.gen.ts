@@ -22,6 +22,7 @@ import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PlaybackRouteImport } from './routes/playback'
 import { Route as PredictionsRouteImport } from './routes/predictions'
 import { Route as RecommendationsRouteImport } from './routes/recommendations'
+import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SimulatorRouteImport } from './routes/simulator'
 import { Route as StgnnRouteImport } from './routes/stgnn'
 import { Route as SurveillanceRouteImport } from './routes/surveillance'
@@ -93,6 +94,11 @@ const RecommendationsRoute = RecommendationsRouteImport.update({
   path: '/recommendations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SimulatorRoute = SimulatorRouteImport.update({
   id: '/simulator',
   path: '/simulator',
@@ -133,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
   '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
   '/simulator': typeof SimulatorRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
@@ -153,6 +160,7 @@ export interface FileRoutesByTo {
   '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
   '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
   '/simulator': typeof SimulatorRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
@@ -174,6 +182,7 @@ export interface FileRoutesById {
   '/playback': typeof PlaybackRoute
   '/predictions': typeof PredictionsRoute
   '/recommendations': typeof RecommendationsRoute
+  '/reports': typeof ReportsRoute
   '/simulator': typeof SimulatorRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
@@ -196,6 +205,7 @@ export interface FileRouteTypes {
     | '/playback'
     | '/predictions'
     | '/recommendations'
+    | '/reports'
     | '/simulator'
     | '/stgnn'
     | '/surveillance'
@@ -216,6 +226,7 @@ export interface FileRouteTypes {
     | '/playback'
     | '/predictions'
     | '/recommendations'
+    | '/reports'
     | '/simulator'
     | '/stgnn'
     | '/surveillance'
@@ -236,6 +247,7 @@ export interface FileRouteTypes {
     | '/playback'
     | '/predictions'
     | '/recommendations'
+    | '/reports'
     | '/simulator'
     | '/stgnn'
     | '/surveillance'
@@ -257,6 +269,7 @@ export interface RootRouteChildren {
   PlaybackRoute: typeof PlaybackRoute
   PredictionsRoute: typeof PredictionsRoute
   RecommendationsRoute: typeof RecommendationsRoute
+  ReportsRoute: typeof ReportsRoute
   SimulatorRoute: typeof SimulatorRoute
   StgnnRoute: typeof StgnnRoute
   SurveillanceRoute: typeof SurveillanceRoute
@@ -357,6 +370,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RecommendationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/simulator': {
       id: '/simulator'
       path: '/simulator'
@@ -409,6 +429,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlaybackRoute: PlaybackRoute,
   PredictionsRoute: PredictionsRoute,
   RecommendationsRoute: RecommendationsRoute,
+  ReportsRoute: ReportsRoute,
   SimulatorRoute: SimulatorRoute,
   StgnnRoute: StgnnRoute,
   SurveillanceRoute: SurveillanceRoute,
