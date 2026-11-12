@@ -83,9 +83,9 @@ function Dashboard() {
             <div key={k.label} className="flex min-w-0 items-start gap-3 border-b border-border px-4 py-4 lg:border-b-0 lg:px-6">
               <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-secondary text-primary">{k.icon}</div>
               <div className="min-w-0">
-                <div className="truncate text-xs text-muted-foreground">{k.label}</div>
+                <div className="text-xs leading-tight text-muted-foreground">{k.label}</div>
                 <div className="tabular font-serif text-2xl">{k.value}</div>
-                <div className="truncate text-[0.7rem] text-muted-foreground">{k.sub}</div>
+                <div className="text-[0.7rem] leading-tight text-muted-foreground">{k.sub}</div>
               </div>
             </div>
           ))}
@@ -97,9 +97,9 @@ function Dashboard() {
         <h2 className="mt-1 text-3xl">Disease risk by ward</h2>
         <p className="mt-1 max-w-3xl text-sm text-muted-foreground">Composite risk is the higher of cholera and typhoid outbreak probability for {LATEST.label}. Click a ward to see its drivers.</p>
 
-        <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="mt-5 grid items-start gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
           <Panel title="Greater Mumbai · 24 wards" actions={<RiskLegend />} bodyClassName="p-0">
-            <WardMap styles={styles} selected={selected} onSelect={setSelected} height={480} className="rounded-none border-0" />
+            <WardMap styles={styles} selected={selected} onSelect={setSelected} height={640} className="rounded-none border-0" />
           </Panel>
           <div className="flex flex-col gap-5">
             <Panel eyebrow="Ward detail" title={`Ward ${sel.ward} · ${wardByCode(sel.ward).areas.split(",")[0]}`} actions={<RiskBadge level={sel.level} />}>

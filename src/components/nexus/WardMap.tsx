@@ -51,10 +51,10 @@ export function WardMap({ styles, selected, onSelect, edges, height = 460, showL
       if (cancelled || !el.current) return;
       const Lf = (mod.default ?? mod) as typeof Leaflet;
       L.current = Lf;
-      const m = Lf.map(el.current, { zoomControl: true, scrollWheelZoom: false, attributionControl: true }).setView([19.08, 72.88], 11);
-      Lf.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a> · Wards: MCGM/Datameet',
-        maxZoom: 18,
+      const m = Lf.map(el.current, { zoomControl: true, scrollWheelZoom: false, attributionControl: true, zoomSnap: 0.25 }).setView([19.08, 72.88], 11);
+      Lf.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+        attribution: "Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors · Wards: MCGM/Datameet",
+        maxZoom: 16,
       }).addTo(m);
       const gj = Lf.geoJSON(geo, {
         onEachFeature: (f, layer) => {
@@ -66,7 +66,8 @@ export function WardMap({ styles, selected, onSelect, edges, height = 460, showL
           layer.on("mouseout", () => restyle());
         },
       }).addTo(m);
-      m.fitBounds(gj.getBounds(), { padding: [8, 8] });
+      m.fitBounds(gj.getBounds(), { padding: [12, 12] });
+      setTimeout(() => { m.invalidateSize(); m.fitBounds(gj.getBounds(), { padding: [12, 12] }); }, 150);
       edgeLayer.current = Lf.layerGroup().addTo(m);
       labelLayer.current = Lf.layerGroup().addTo(m);
       map.current = m;
