@@ -11,10 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ClimateRouteImport } from './routes/climate'
+import { Route as ExplainableAiRouteImport } from './routes/explainable-ai'
 import { Route as HeatmapRouteImport } from './routes/heatmap'
+import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
 import { Route as PredictionsRouteImport } from './routes/predictions'
 import { Route as StgnnRouteImport } from './routes/stgnn'
 import { Route as SurveillanceRouteImport } from './routes/surveillance'
+import { Route as TransformerRouteImport } from './routes/transformer'
 import { Route as WaterQualityRouteImport } from './routes/water-quality'
 
 const IndexRoute = IndexRouteImport.update({
@@ -27,9 +30,19 @@ const ClimateRoute = ClimateRouteImport.update({
   path: '/climate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExplainableAiRoute = ExplainableAiRouteImport.update({
+  id: '/explainable-ai',
+  path: '/explainable-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HeatmapRoute = HeatmapRouteImport.update({
   id: '/heatmap',
   path: '/heatmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModelPerformanceRoute = ModelPerformanceRouteImport.update({
+  id: '/model-performance',
+  path: '/model-performance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PredictionsRoute = PredictionsRouteImport.update({
@@ -47,6 +60,11 @@ const SurveillanceRoute = SurveillanceRouteImport.update({
   path: '/surveillance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TransformerRoute = TransformerRouteImport.update({
+  id: '/transformer',
+  path: '/transformer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WaterQualityRoute = WaterQualityRouteImport.update({
   id: '/water-quality',
   path: '/water-quality',
@@ -56,29 +74,38 @@ const WaterQualityRoute = WaterQualityRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
+  '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
+  '/model-performance': typeof ModelPerformanceRoute
   '/predictions': typeof PredictionsRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
+  '/transformer': typeof TransformerRoute
   '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
+  '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
+  '/model-performance': typeof ModelPerformanceRoute
   '/predictions': typeof PredictionsRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
+  '/transformer': typeof TransformerRoute
   '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
+  '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
+  '/model-performance': typeof ModelPerformanceRoute
   '/predictions': typeof PredictionsRoute
   '/stgnn': typeof StgnnRoute
   '/surveillance': typeof SurveillanceRoute
+  '/transformer': typeof TransformerRoute
   '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRouteTypes {
@@ -86,38 +113,50 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/climate'
+    | '/explainable-ai'
     | '/heatmap'
+    | '/model-performance'
     | '/predictions'
     | '/stgnn'
     | '/surveillance'
+    | '/transformer'
     | '/water-quality'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/climate'
+    | '/explainable-ai'
     | '/heatmap'
+    | '/model-performance'
     | '/predictions'
     | '/stgnn'
     | '/surveillance'
+    | '/transformer'
     | '/water-quality'
   id:
     | '__root__'
     | '/'
     | '/climate'
+    | '/explainable-ai'
     | '/heatmap'
+    | '/model-performance'
     | '/predictions'
     | '/stgnn'
     | '/surveillance'
+    | '/transformer'
     | '/water-quality'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ClimateRoute: typeof ClimateRoute
+  ExplainableAiRoute: typeof ExplainableAiRoute
   HeatmapRoute: typeof HeatmapRoute
+  ModelPerformanceRoute: typeof ModelPerformanceRoute
   PredictionsRoute: typeof PredictionsRoute
   StgnnRoute: typeof StgnnRoute
   SurveillanceRoute: typeof SurveillanceRoute
+  TransformerRoute: typeof TransformerRoute
   WaterQualityRoute: typeof WaterQualityRoute
 }
 
@@ -137,11 +176,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ClimateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/explainable-ai': {
+      id: '/explainable-ai'
+      path: '/explainable-ai'
+      fullPath: '/explainable-ai'
+      preLoaderRoute: typeof ExplainableAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/heatmap': {
       id: '/heatmap'
       path: '/heatmap'
       fullPath: '/heatmap'
       preLoaderRoute: typeof HeatmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/model-performance': {
+      id: '/model-performance'
+      path: '/model-performance'
+      fullPath: '/model-performance'
+      preLoaderRoute: typeof ModelPerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/predictions': {
@@ -165,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SurveillanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/transformer': {
+      id: '/transformer'
+      path: '/transformer'
+      fullPath: '/transformer'
+      preLoaderRoute: typeof TransformerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/water-quality': {
       id: '/water-quality'
       path: '/water-quality'
@@ -178,10 +238,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ClimateRoute: ClimateRoute,
+  ExplainableAiRoute: ExplainableAiRoute,
   HeatmapRoute: HeatmapRoute,
+  ModelPerformanceRoute: ModelPerformanceRoute,
   PredictionsRoute: PredictionsRoute,
   StgnnRoute: StgnnRoute,
   SurveillanceRoute: SurveillanceRoute,
+  TransformerRoute: TransformerRoute,
   WaterQualityRoute: WaterQualityRoute,
 }
 export const routeTree = rootRouteImport
