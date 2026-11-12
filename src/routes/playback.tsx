@@ -90,7 +90,7 @@ function Playback() {
             <ResponsiveContainer>
               <ComposedChart data={timeline} onClick={(e) => { if (e && typeof e.activeTooltipIndex === "number") { setPlaying(false); setIdx(e.activeTooltipIndex); } }}>
                 <CartesianGrid stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="label" {...axisProps} interval={11} />
+                <XAxis dataKey="label" {...axisProps} interval={23} />
                 <YAxis yAxisId="w" {...axisProps} width={28} domain={[0, 24]} />
                 <YAxis yAxisId="p" orientation="right" {...axisProps} width={34} domain={[0, 100]} unit="%" />
                 <YAxis yAxisId="o" hide domain={[-3, 3]} />
