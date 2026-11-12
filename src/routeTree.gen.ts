@@ -15,6 +15,8 @@ import { Route as ClimateRouteImport } from './routes/climate'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as DataExplorerRouteImport } from './routes/data-explorer'
 import { Route as DataSourcesRouteImport } from './routes/data-sources'
+import { Route as DiseaseEducationRouteImport } from './routes/disease-education'
+import { Route as ElNinoRouteImport } from './routes/el-nino'
 import { Route as ExplainableAiRouteImport } from './routes/explainable-ai'
 import { Route as HeatmapRouteImport } from './routes/heatmap'
 import { Route as ModelPerformanceRouteImport } from './routes/model-performance'
@@ -57,6 +59,16 @@ const DataExplorerRoute = DataExplorerRouteImport.update({
 const DataSourcesRoute = DataSourcesRouteImport.update({
   id: '/data-sources',
   path: '/data-sources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiseaseEducationRoute = DiseaseEducationRouteImport.update({
+  id: '/disease-education',
+  path: '/disease-education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ElNinoRoute = ElNinoRouteImport.update({
+  id: '/el-nino',
+  path: '/el-nino',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExplainableAiRoute = ExplainableAiRouteImport.update({
@@ -132,6 +144,8 @@ export interface FileRoutesByFullPath {
   '/compare': typeof CompareRoute
   '/data-explorer': typeof DataExplorerRoute
   '/data-sources': typeof DataSourcesRoute
+  '/disease-education': typeof DiseaseEducationRoute
+  '/el-nino': typeof ElNinoRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
@@ -153,6 +167,8 @@ export interface FileRoutesByTo {
   '/compare': typeof CompareRoute
   '/data-explorer': typeof DataExplorerRoute
   '/data-sources': typeof DataSourcesRoute
+  '/disease-education': typeof DiseaseEducationRoute
+  '/el-nino': typeof ElNinoRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
@@ -175,6 +191,8 @@ export interface FileRoutesById {
   '/compare': typeof CompareRoute
   '/data-explorer': typeof DataExplorerRoute
   '/data-sources': typeof DataSourcesRoute
+  '/disease-education': typeof DiseaseEducationRoute
+  '/el-nino': typeof ElNinoRoute
   '/explainable-ai': typeof ExplainableAiRoute
   '/heatmap': typeof HeatmapRoute
   '/model-performance': typeof ModelPerformanceRoute
@@ -198,6 +216,8 @@ export interface FileRouteTypes {
     | '/compare'
     | '/data-explorer'
     | '/data-sources'
+    | '/disease-education'
+    | '/el-nino'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
@@ -219,6 +239,8 @@ export interface FileRouteTypes {
     | '/compare'
     | '/data-explorer'
     | '/data-sources'
+    | '/disease-education'
+    | '/el-nino'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
@@ -240,6 +262,8 @@ export interface FileRouteTypes {
     | '/compare'
     | '/data-explorer'
     | '/data-sources'
+    | '/disease-education'
+    | '/el-nino'
     | '/explainable-ai'
     | '/heatmap'
     | '/model-performance'
@@ -262,6 +286,8 @@ export interface RootRouteChildren {
   CompareRoute: typeof CompareRoute
   DataExplorerRoute: typeof DataExplorerRoute
   DataSourcesRoute: typeof DataSourcesRoute
+  DiseaseEducationRoute: typeof DiseaseEducationRoute
+  ElNinoRoute: typeof ElNinoRoute
   ExplainableAiRoute: typeof ExplainableAiRoute
   HeatmapRoute: typeof HeatmapRoute
   ModelPerformanceRoute: typeof ModelPerformanceRoute
@@ -319,6 +345,20 @@ declare module '@tanstack/react-router' {
       path: '/data-sources'
       fullPath: '/data-sources'
       preLoaderRoute: typeof DataSourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/disease-education': {
+      id: '/disease-education'
+      path: '/disease-education'
+      fullPath: '/disease-education'
+      preLoaderRoute: typeof DiseaseEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/el-nino': {
+      id: '/el-nino'
+      path: '/el-nino'
+      fullPath: '/el-nino'
+      preLoaderRoute: typeof ElNinoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/explainable-ai': {
@@ -422,6 +462,8 @@ const rootRouteChildren: RootRouteChildren = {
   CompareRoute: CompareRoute,
   DataExplorerRoute: DataExplorerRoute,
   DataSourcesRoute: DataSourcesRoute,
+  DiseaseEducationRoute: DiseaseEducationRoute,
+  ElNinoRoute: ElNinoRoute,
   ExplainableAiRoute: ExplainableAiRoute,
   HeatmapRoute: HeatmapRoute,
   ModelPerformanceRoute: ModelPerformanceRoute,

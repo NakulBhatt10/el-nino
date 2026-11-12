@@ -48,12 +48,12 @@ function Education() {
         </Panel>
         <Panel eyebrow="At a glance" title="Cholera vs typhoid">
           <table className="w-full text-sm">
+            <thead><tr className="text-left text-xs"><th /><th className="pb-1 font-semibold text-primary">Cholera</th><th className="pb-1 font-semibold text-primary">Typhoid</th></tr></thead>
             <tbody>
               {[["Cause", DISEASES.cholera.agent, DISEASES.typhoid.agent], ["Incubation", DISEASES.cholera.incubation, DISEASES.typhoid.incubation], ["Main sign", "Watery diarrhoea", "Prolonged fever"], ["Key danger", "Dehydration", "Complications if untreated"], ["Vaccine", "Oral cholera vaccine", "Typhoid conjugate vaccine"]].map(([k, a, b]) => (
                 <tr key={k} className="border-b border-border last:border-0 align-top"><td className="py-2 pr-2 text-xs text-muted-foreground">{k}</td><td className="py-2 pr-2">{a}</td><td className="py-2">{b}</td></tr>
               ))}
             </tbody>
-            <thead><tr className="text-left text-xs"><th /><th className="pb-1 font-semibold text-primary">Cholera</th><th className="pb-1 font-semibold text-primary">Typhoid</th></tr></thead>
           </table>
         </Panel>
       </div>
