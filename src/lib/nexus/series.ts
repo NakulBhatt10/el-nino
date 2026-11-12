@@ -86,7 +86,7 @@ export interface WardMonth extends MonthRef {
 }
 
 const LAKE_CAPACITY_ML = 1_447_363;
-const MONTHLY_DEMAND_ML = 132_000;
+const MONTHLY_DEMAND_ML = 148_000;
 const INFLOW_ML_PER_MM = 560;
 
 function buildCity(): CityMonth[] {
