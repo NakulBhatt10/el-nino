@@ -40,11 +40,11 @@ export const featureLabel = (k: FeatureKey) => FEATURES.find((f) => f.key === k)
 
 export const WEIGHTS: Record<Disease, { bias: number; w: FeatureVector }> = {
   cholera: {
-    bias: -5.0,
+    bias: -6.1,
     w: { contamination: 3.0, scarcity: 1.8, rainfall: 1.4, density: 0.6, slum: 1.8, sanitation: 1.2, flood: 0.6, heat: 0.5, enso: 0.7, recentCases: 1.4 },
   },
   typhoid: {
-    bias: -4.6,
+    bias: -5.4,
     w: { contamination: 2.4, scarcity: 1.6, rainfall: 1.0, density: 0.8, slum: 1.4, sanitation: 1.1, flood: 0.4, heat: 0.9, enso: 0.6, recentCases: 1.6 },
   },
 };
