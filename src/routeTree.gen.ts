@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ClimateRouteImport } from './routes/climate'
 import { Route as HeatmapRouteImport } from './routes/heatmap'
+import { Route as SurveillanceRouteImport } from './routes/surveillance'
+import { Route as WaterQualityRouteImport } from './routes/water-quality'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +30,59 @@ const HeatmapRoute = HeatmapRouteImport.update({
   path: '/heatmap',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SurveillanceRoute = SurveillanceRouteImport.update({
+  id: '/surveillance',
+  path: '/surveillance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WaterQualityRoute = WaterQualityRouteImport.update({
+  id: '/water-quality',
+  path: '/water-quality',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
   '/heatmap': typeof HeatmapRoute
+  '/surveillance': typeof SurveillanceRoute
+  '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
   '/heatmap': typeof HeatmapRoute
+  '/surveillance': typeof SurveillanceRoute
+  '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/climate': typeof ClimateRoute
   '/heatmap': typeof HeatmapRoute
+  '/surveillance': typeof SurveillanceRoute
+  '/water-quality': typeof WaterQualityRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/climate' | '/heatmap'
+  fullPaths: '/' | '/climate' | '/heatmap' | '/surveillance' | '/water-quality'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/climate' | '/heatmap'
-  id: '__root__' | '/' | '/climate' | '/heatmap'
+  to: '/' | '/climate' | '/heatmap' | '/surveillance' | '/water-quality'
+  id:
+    | '__root__'
+    | '/'
+    | '/climate'
+    | '/heatmap'
+    | '/surveillance'
+    | '/water-quality'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ClimateRoute: typeof ClimateRoute
   HeatmapRoute: typeof HeatmapRoute
+  SurveillanceRoute: typeof SurveillanceRoute
+  WaterQualityRoute: typeof WaterQualityRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +108,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HeatmapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/surveillance': {
+      id: '/surveillance'
+      path: '/surveillance'
+      fullPath: '/surveillance'
+      preLoaderRoute: typeof SurveillanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/water-quality': {
+      id: '/water-quality'
+      path: '/water-quality'
+      fullPath: '/water-quality'
+      preLoaderRoute: typeof WaterQualityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +129,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ClimateRoute: ClimateRoute,
   HeatmapRoute: HeatmapRoute,
+  SurveillanceRoute: SurveillanceRoute,
+  WaterQualityRoute: WaterQualityRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
