@@ -52,7 +52,7 @@ function Xai() {
               <BarChart data={data} layout="vertical" margin={{ left: 10 }}>
                 <CartesianGrid stroke="var(--border)" horizontal={false} />
                 <XAxis type="number" {...axisProps} />
-                <YAxis type="category" dataKey="name" {...axisProps} width={110} />
+                <YAxis type="category" dataKey="name" {...axisProps} width={110} interval={0} />
                 <Tooltip {...tooltipStyle} formatter={(v: number) => [`${v > 0 ? "+" : ""}${v} log-odds`, "Contribution"]} />
                 <ReferenceLine x={0} stroke="var(--muted-foreground)" />
                 <Bar dataKey="value" radius={2}>
@@ -78,11 +78,11 @@ function Xai() {
             </dl>
           </Panel>
           <Panel eyebrow="Global importance" title="Mean |contribution| across wards">
-            <div className="h-56">
+            <div className="h-72">
               <ResponsiveContainer>
                 <BarChart data={global} layout="vertical">
                   <XAxis type="number" {...axisProps} hide />
-                  <YAxis type="category" dataKey="name" {...axisProps} width={110} />
+                  <YAxis type="category" dataKey="name" {...axisProps} width={110} interval={0} />
                   <Tooltip {...tooltipStyle} />
                   <Bar dataKey="value" name="Importance" fill="var(--chart-1)" radius={2} />
                 </BarChart>
